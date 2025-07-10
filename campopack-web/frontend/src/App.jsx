@@ -392,8 +392,8 @@ function Producto() {
   return (
     <>
       <SEO 
-        title="Caja de Paltas Campopack - Ficha Técnica y Especificaciones | Chile"
-        description="Ficha técnica completa de la caja de paltas Campopack. Especificaciones, proceso de embalaje, sostenibilidad y cotización para exportación."
+        title="Caja de Paltas Campo-Pack - Ficha Técnica y Especificaciones | Chile"
+        description="Ficha técnica completa de la caja de paltas Campo-Pack. Especificaciones, proceso de embalaje, sostenibilidad y cotización para exportación."
       />
       <ProductoContent />
     </>
@@ -418,7 +418,7 @@ function ProductoContent() {
         <div className="text-center mb-12 sm:mb-16">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary-700 mb-4 sm:mb-6 flex items-center justify-center gap-2 sm:gap-4">
             <Package className="w-7 h-7 stroke-2" />
-            Caja de Paltas Campopack
+            Caja de Paltas Campo-Pack
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-primary-600 max-w-3xl mx-auto px-4">
             Diseñada para la cosecha y exportación de paltas, con máxima resistencia y ergonomía.
@@ -565,7 +565,7 @@ function Contacto() {
   return (
     <>
       <SEO 
-        title="Contacto y Cotización - Campopack | Chile"
+        title="Contacto y Cotización - Campo-Pack | Chile"
         description="Solicita tu cotización de empaques para paltas. Formulario de contacto, datos de la empresa y respuesta rápida en menos de 24 horas."
       />
       <ContactoContent />
@@ -817,7 +817,7 @@ function Footer() {
           transition={{ duration: 0.6 }}
           className="sm:col-span-2 lg:col-span-1"
         >
-          <span className="text-xl sm:text-2xl font-extrabold font-inter">Campopack</span>
+          <span className="text-xl sm:text-2xl font-extrabold font-inter">Campo-Pack</span>
           <p className="mt-2 text-sm opacity-90">Cajas plásticas diseñadas para exportación agrícola de alto volumen.</p>
           <div className="flex gap-3 mt-4 text-xl sm:text-2xl">
             {[
@@ -927,15 +927,15 @@ function Footer() {
         </motion.div>
       </div>
       
-      <motion.div 
-        className="text-center text-xs mt-6 sm:mt-8 opacity-80 border-t border-white/20 pt-4 sm:pt-6"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-      >
-        © {new Date().getFullYear()}, Campopack. Todos los derechos reservados.
-      </motion.div>
+              <motion.div 
+          className="text-center text-xs mt-6 sm:mt-8 opacity-80 border-t border-white/20 pt-4 sm:pt-6"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          © {new Date().getFullYear()}, Campo-Pack. Todos los derechos reservados.
+        </motion.div>
     </motion.footer>
   );
 }
@@ -967,7 +967,7 @@ function Header() {
           className="text-2xl sm:text-3xl font-extrabold text-[#164726] font-inter"
           whileHover={{ scale: 1.05 }}
         >
-          <Link to="/">Campopack</Link>
+          <Link to="/">Campo-Pack</Link>
         </motion.div>
         {/* Navegación desktop */}
         <nav className="hidden md:flex gap-6 text-[#164726] font-bold text-lg justify-center items-center">
@@ -1064,7 +1064,7 @@ function Home() {
   return (
     <>
       <SEO 
-        title="Campopack - Empaques Sostenibles para Agroindustria | Chile"
+        title="Campo-Pack - Empaques Sostenibles para Agroindustria | Chile"
         description="Soluciones de empaque sostenible para paltas y productos agrícolas. Cajas de alta calidad para exportación. Cotiza ahora y conserva lo mejor del campo."
       />
       {/* <Header /> Eliminado para evitar doble header */}
@@ -1161,7 +1161,7 @@ function PoliticaPrivacidad() {
         
         <div className="prose prose-lg max-w-none">
           <p className="text-lg text-[#234b1c] mb-6">
-            En Campopack, nos comprometemos a proteger y respetar tu privacidad. Esta política de privacidad describe cómo recopilamos, utilizamos y protegemos tu información personal cuando visitas nuestro sitio web o utilizas nuestros servicios.
+            En Campo-Pack, nos comprometemos a proteger y respetar tu privacidad. Esta política de privacidad describe cómo recopilamos, utilizamos y protegemos tu información personal cuando visitas nuestro sitio web o utilizas nuestros servicios.
           </p>
           
           <h2 className="text-2xl font-bold text-[#234b1c] mt-8 mb-4">Información que recopilamos</h2>
@@ -1201,7 +1201,7 @@ function TerminosServicio() {
         
         <div className="prose prose-lg max-w-none">
           <p className="text-lg text-[#234b1c] mb-6">
-            Al acceder y utilizar el sitio web de Campopack, aceptas estar sujeto a estos términos y condiciones de servicio. Si no estás de acuerdo con alguna parte de estos términos, no debes utilizar nuestro sitio web.
+            Al acceder y utilizar el sitio web de Campo-Pack, aceptas estar sujeto a estos términos y condiciones de servicio. Si no estás de acuerdo con alguna parte de estos términos, no debes utilizar nuestro sitio web.
           </p>
           
           <h2 className="text-2xl font-bold text-[#234b1c] mt-8 mb-4">Uso del sitio web</h2>
@@ -1216,7 +1216,7 @@ function TerminosServicio() {
           
           <h2 className="text-2xl font-bold text-[#234b1c] mt-8 mb-4">Limitación de responsabilidad</h2>
           <p className="text-lg text-[#234b1c] mb-6">
-            Campopack no será responsable de ningún daño directo, indirecto, incidental, especial o consecuente que resulte del uso o la imposibilidad de usar nuestro sitio web o servicios.
+            Campo-Pack no será responsable de ningún daño directo, indirecto, incidental, especial o consecuente que resulte del uso o la imposibilidad de usar nuestro sitio web o servicios.
           </p>
           
           <h2 className="text-2xl font-bold text-[#234b1c] mt-8 mb-4">Modificaciones</h2>
@@ -1273,13 +1273,13 @@ function Cookies() {
 
 function AppRouter() {
   const location = useLocation();
-  // SEO dinámico
-  let seo = { title: 'Campopack', description: 'Soluciones de empaque para agroindustria.' };
-  if (location.pathname === '/producto') seo = { title: 'Caja de Paltas Campopack', description: 'Ficha técnica, proceso y sostenibilidad de la caja de paltas.' };
-  if (location.pathname === '/contacto') seo = { title: 'Contacto - Campopack', description: 'Formulario y datos de contacto de Campopack.' };
-  if (location.pathname === '/politica-de-privacidad') seo = { title: 'Política de Privacidad - Campopack', description: 'Política de privacidad y protección de datos de Campopack.' };
-  if (location.pathname === '/terminos-de-servicio') seo = { title: 'Términos de Servicio - Campopack', description: 'Términos y condiciones de uso del sitio web de Campopack.' };
-  if (location.pathname === '/cookies') seo = { title: 'Política de Cookies - Campopack', description: 'Política de cookies y tecnologías de seguimiento de Campopack.' };
+      // SEO dinámico
+    let seo = { title: 'Campo-Pack', description: 'Soluciones de empaque para agroindustria.' };
+      if (location.pathname === '/producto') seo = { title: 'Caja de Paltas Campo-Pack', description: 'Ficha técnica, proceso y sostenibilidad de la caja de paltas.' };
+    if (location.pathname === '/contacto') seo = { title: 'Contacto - Campo-Pack', description: 'Formulario y datos de contacto de Campo-Pack.' };
+  if (location.pathname === '/politica-de-privacidad') seo = { title: 'Política de Privacidad - Campo-Pack', description: 'Política de privacidad y protección de datos de Campo-Pack.' };
+  if (location.pathname === '/terminos-de-servicio') seo = { title: 'Términos de Servicio - Campo-Pack', description: 'Términos y condiciones de uso del sitio web de Campo-Pack.' };
+  if (location.pathname === '/cookies') seo = { title: 'Política de Cookies - Campo-Pack', description: 'Política de cookies y tecnologías de seguimiento de Campo-Pack.' };
   return (
     <>
       <SEO {...seo} />
