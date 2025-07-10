@@ -5,6 +5,7 @@ import {
   Route,
   Link,
   useLocation,
+  useNavigate,
 } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 // eslint-disable-next-line no-unused-vars
@@ -30,7 +31,8 @@ import {
   CheckCircle,
   Users,
   Shield,
-  Clock
+  Clock,
+  AlertTriangle
 } from "lucide-react";
 
 class ErrorBoundary extends React.Component {
@@ -1271,6 +1273,72 @@ function Cookies() {
   );
 }
 
+function NotFound() {
+  const navigate = useNavigate();
+  const [countdown, setCountdown] = useState(3);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    
+    const timer = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          navigate('/');
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [navigate]);
+
+  return (
+    <div className="bg-[#D7E0A5] min-h-screen flex items-center justify-center">
+      <div className="text-center max-w-2xl mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="mb-8"
+        >
+          <AlertTriangle className="w-24 h-24 text-[#234b1c] mx-auto mb-6" />
+          <h1 className="text-4xl md:text-6xl font-extrabold text-[#234b1c] mb-4">
+            Página no encontrada
+          </h1>
+          <p className="text-xl md:text-2xl text-[#234b1c] mb-8">
+            La página que buscas no existe o ha sido movida.
+          </p>
+        </motion.div>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-8"
+        >
+          <p className="text-lg text-[#234b1c] mb-6">
+            Serás redirigido automáticamente al inicio en <span className="font-bold text-2xl">{countdown}</span> segundos.
+          </p>
+        </motion.div>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <Link to="/">
+            <button className="btn-primary text-lg flex items-center gap-2 mx-auto">
+              <Leaf className="w-5 h-5" />
+              Ir al Inicio
+            </button>
+          </Link>
+        </motion.div>
+      </div>
+    </div>
+  );
+}
+
 function AppRouter() {
   const location = useLocation();
       // SEO dinámico
@@ -1280,6 +1348,9 @@ function AppRouter() {
   if (location.pathname === '/politica-de-privacidad') seo = { title: 'Política de Privacidad - Campo-Pack', description: 'Política de privacidad y protección de datos de Campo-Pack.' };
   if (location.pathname === '/terminos-de-servicio') seo = { title: 'Términos de Servicio - Campo-Pack', description: 'Términos y condiciones de uso del sitio web de Campo-Pack.' };
   if (location.pathname === '/cookies') seo = { title: 'Política de Cookies - Campo-Pack', description: 'Política de cookies y tecnologías de seguimiento de Campo-Pack.' };
+  if (location.pathname !== '/' && location.pathname !== '/producto' && location.pathname !== '/contacto' && location.pathname !== '/politica-de-privacidad' && location.pathname !== '/terminos-de-servicio' && location.pathname !== '/cookies') {
+    seo = { title: 'Página no encontrada - Campo-Pack', description: 'La página que buscas no existe. Serás redirigido al inicio automáticamente.' };
+  }
   return (
     <>
       <SEO {...seo} />
@@ -1291,6 +1362,7 @@ function AppRouter() {
         <Route path="/politica-de-privacidad" element={<PoliticaPrivacidad />} />
         <Route path="/terminos-de-servicio" element={<TerminosServicio />} />
         <Route path="/cookies" element={<Cookies />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>
