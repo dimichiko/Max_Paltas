@@ -189,75 +189,65 @@ function Clientes() {
 
 function Hero() {
   return (
-    <div className="relative overflow-hidden gradient-hero min-h-screen flex items-center">
-      {/* Elementos decorativos animados */}
+    <div className="relative z-10 flex flex-col items-center justify-center text-center py-0 sm:py-2 md:py-4 lg:py-6 px-4 max-w-6xl mx-auto">
+      {/* Badge superior */}
       <motion.div
-        className="absolute left-0 top-0 w-1/3 h-40 md:h-64"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        className="mb-6 sm:mb-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
       >
-        <svg viewBox="0 0 300 100" fill="none">
-          <path d="M0,100 Q150,0 300,100 Z" fill="rgba(35, 75, 28, 0.1)" />
-        </svg>
+        <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold border border-primary-200">
+          <Leaf className="w-7 h-7 stroke-2" />
+          Exportación Directa
+        </span>
       </motion.div>
+
+      <motion.h1 
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-primary-700 mb-6 sm:mb-8 leading-tight tracking-tight font-inter"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.2 }}
+      >
+        Exportamos Calidad.
+        <br className="hidden sm:block" />
+        <span className="text-orange-700 drop-shadow-[0_1px_1px_white] font-extrabold" style={{ WebkitTextStroke: '1px #fff', textStroke: '1px #fff' }}>
+          Más que Paltas.
+        </span>
+      </motion.h1>
       
-      <motion.div
-        className="absolute right-0 bottom-0 w-1/2 h-40 md:h-64"
-        animate={{ rotate: -360 }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+      <motion.p 
+        className="text-lg sm:text-xl md:text-2xl text-primary-600 mb-8 sm:mb-10 font-semibold max-w-4xl px-4 leading-relaxed"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.4 }}
       >
-        <svg viewBox="0 0 400 100" fill="none">
-          <path d="M0,0 Q200,100 400,0 Z" fill="rgba(247, 191, 160, 0.2)" />
-        </svg>
+        Paltas seleccionadas y empacadas con precisión para exportación sin pérdidas.
+      </motion.p>
+      
+      {/* Botones mejorados */}
+      <motion.div
+        className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+      >
+        <Link to="/producto">
+          <button className="btn-primary text-base sm:text-lg md:text-xl flex items-center gap-2 sm:gap-3 group px-4 sm:px-6 md:px-8 py-3 sm:py-4 shadow-lg hover:shadow-xl transition-all duration-300">
+            <Package className="w-7 h-7 stroke-2" />
+            Ver Paltas
+          </button>
+        </Link>
+        
+        <Link to="/contacto">
+          <button className="btn-secondary text-base sm:text-lg md:text-xl flex items-center gap-2 sm:gap-3 group px-4 sm:px-6 md:px-8 py-3 sm:py-4 border-2 border-primary-200 hover:border-primary-300 transition-all duration-300">
+            <Mail className="w-7 h-7 stroke-2" />
+            Solicita Cotización
+          </button>
+        </Link>
       </motion.div>
-
-      {/* Partículas flotantes */}
-      <motion.div
-        className="absolute top-20 left-20 w-4 h-4 bg-primary-400 rounded-full opacity-30"
-        animate={{ y: [0, -20, 0] }}
-        transition={{ duration: 3, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute top-40 right-32 w-3 h-3 bg-accent-300 rounded-full opacity-40"
-        animate={{ y: [0, 15, 0] }}
-        transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-      />
-
-      <div className="relative z-10 flex flex-col items-center justify-center text-center py-16 sm:py-20 md:py-28 lg:py-44 px-4 max-w-6xl mx-auto">
-        <motion.h1 
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-primary-700 mb-6 sm:mb-8 leading-tight tracking-tight font-inter"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          Soluciones que Conservan
-          <br className="hidden sm:block" />
-          <span className="text-primary-500">Más que Paltas</span>
-        </motion.h1>
-        
-        <motion.p 
-          className="text-lg sm:text-xl md:text-2xl text-primary-600 mb-8 sm:mb-10 font-semibold max-w-4xl px-4"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          Empaque sostenible y eficiente para la agroindustria
-        </motion.p>
-        
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          whileHover={{ scale: 1.05 }}
-        >
-          <Link to="/producto">
-            <button className="btn-primary text-lg sm:text-xl md:text-2xl flex items-center gap-2 sm:gap-3 group px-6 sm:px-8 py-3 sm:py-4">
-              <Package className="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform" />
-              Ver Producto
-            </button>
-          </Link>
-        </motion.div>
-      </div>
+      {/* Espaciado extra debajo de los botones */}
+      <div className="mt-8" />
     </div>
   );
 }
@@ -265,24 +255,76 @@ function Hero() {
 function IntroStayFresh() {
   return (
     <div className="max-w-6xl mx-auto px-4">
-      <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+      <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         <motion.div 
           className="flex-1 text-center lg:text-left"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1 }}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary-700 mb-4 sm:mb-6 flex items-center justify-center lg:justify-start gap-2 sm:gap-3">
-            <Leaf className="w-6 h-6 sm:w-8 sm:h-8 text-primary-500" />
-            Conserva lo mejor del campo
+          {/* Badge superior */}
+          <motion.div
+            className="mb-6 flex justify-center lg:justify-start"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-accent-100 text-accent-700 rounded-full text-sm font-semibold border border-accent-200">
+              <Package className="w-7 h-7 stroke-2" />
+              Compromiso con la Calidad
+            </span>
+          </motion.div>
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary-700 mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-3 sm:gap-4">
+            <Leaf className="w-8 h-8 sm:w-10 sm:h-10 text-primary-500" />
+            Del campo al mundo
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-primary-600 mb-4 leading-relaxed">
-            En Campopack, ayudamos a que tus paltas y productos agrícolas lleguen frescos y protegidos a destino. Nuestro empaque sostenible cuida la calidad, reduce desperdicio y optimiza la logística para exportadores exigentes.
-          </p>
-          <p className="text-lg sm:text-xl md:text-2xl text-primary-600 leading-relaxed">
-            Confía en la innovación y experiencia de Campopack para conservar lo mejor del campo, desde la cosecha hasta la mesa.
-          </p>
+          
+          <div className="space-y-6 mb-8">
+            <p className="text-xl sm:text-2xl md:text-3xl text-primary-600 leading-relaxed font-semibold">
+              En Campopack, seleccionamos las mejores paltas y las exportamos en cajas resistentes de 3 a 4 kg, garantizando frescura y presentación.
+            </p>
+            <p className="text-lg sm:text-xl md:text-2xl text-primary-600 leading-relaxed">
+              Desde el sur de Chile, llevamos productos de alta calidad a mercados exigentes en el extranjero.
+            </p>
+            <p className="text-lg sm:text-xl md:text-2xl text-primary-600 leading-relaxed">
+              Nuestra misión: hacer llegar nuestras paltas al mundo, con responsabilidad, eficiencia y compromiso.
+            </p>
+          </div>
+
+          {/* Beneficios clave */}
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            {[
+              { icon: '🌱', title: 'Frescura Garantizada', desc: 'Cosechadas en su punto óptimo y empacadas al instante.' },
+              { icon: '🛡️', title: 'Exportación Segura', desc: 'En cajas de polipropileno diseñadas para preservar calidad.' },
+              { icon: '📦', title: 'Peso Ideal', desc: 'Cada unidad contiene entre 3 y 4 kilos, listas para distribución.' },
+              { icon: '🌍', title: 'Trazabilidad y Certificación', desc: 'Procesos que cumplen con estándares internacionales.' }
+            ].map((benefit, index) => (
+              <motion.div
+                key={benefit.title}
+                className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm border border-primary-100 hover:shadow-md transition-all duration-300"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <span className="text-2xl">{benefit.icon}</span>
+                <div>
+                  <h4 className="font-bold text-primary-700 text-sm sm:text-base">{benefit.title}</h4>
+                  <p className="text-primary-600 text-xs sm:text-sm">{benefit.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.div>
         
         <motion.div 
@@ -290,19 +332,55 @@ function IntroStayFresh() {
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 1, delay: 0.2 }}
         >
           <div className="relative">
+            {/* Elementos decorativos */}
+            <motion.div
+              className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-primary-200 to-transparent rounded-full opacity-20"
+              animate={{ scale: [1, 1.1, 1], rotate: [0, 5, 0] }}
+              transition={{ duration: 4, repeat: Infinity }}
+            />
+            <motion.div
+              className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-tl from-accent-200 to-transparent rounded-full opacity-20"
+              animate={{ scale: [1, 1.2, 1], rotate: [0, -5, 0] }}
+              transition={{ duration: 5, repeat: Infinity, delay: 1 }}
+            />
+            
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent-300 rounded-3xl blur-xl opacity-30"
               animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 3, repeat: Infinity }}
+              transition={{ duration: 4, repeat: Infinity }}
             />
-            <img 
-              src="https://dummyimage.com/350x350/bae6fd/0a3a2a.png&text=Caja+de+Paltas" 
-              alt="Caja de paltas" 
-              className="relative rounded-3xl shadow-2xl object-cover w-60 h-60 md:w-80 md:h-80 border-8 border-white hover-lift"
-            />
+            
+            <motion.div
+              className="relative"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=500&q=80" 
+                alt="Caja de paltas sostenible" 
+                className="rounded-3xl shadow-2xl object-cover w-72 h-72 md:w-96 md:h-96 border-8 border-white"
+              />
+              
+              {/* Overlay con información */}
+              <motion.div
+                className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 bg-primary-500 rounded-full"></div>
+                  <div>
+                    <h4 className="font-bold text-primary-700 text-sm">Alto desempeño y protección durante todo el trayecto.</h4>
+                    <p className="text-primary-600 text-xs">Protección superior garantizada</p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
         </motion.div>
       </div>
@@ -334,43 +412,28 @@ function ProductoContent() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-white to-primary-50 min-h-screen">
-      <div className="max-w-6xl mx-auto py-16 px-4">
+    <div className="relative w-full min-h-screen bg-[#D7E0A5] overflow-x-hidden">
+      <div className="relative z-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Hero del producto */}
-        <motion.div 
-          className="text-center mb-12 sm:mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <div className="text-center mb-12 sm:mb-16">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary-700 mb-4 sm:mb-6 flex items-center justify-center gap-2 sm:gap-4">
-            <Package className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-primary-500" />
+            <Package className="w-7 h-7 stroke-2" />
             Caja de Paltas Campopack
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-primary-600 max-w-3xl mx-auto px-4">
             Diseñada para la cosecha y exportación de paltas, con máxima resistencia y ergonomía.
           </p>
-        </motion.div>
-        
+        </div>
         {/* Imagen destacada y breve intro */}
-        <motion.div 
-          className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-12 sm:mb-16 card-modern p-4 sm:p-6 md:p-8 lg:p-12"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-12 sm:mb-16 card-modern p-4 sm:p-6 md:p-8 lg:p-12 bg-[#FCE8BD] rounded-2xl shadow-md">
           <div className="flex-1 flex justify-center">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
+            <div>
               <ImageWithLoader 
                 src={imgUrl} 
                 alt="Caja de paltas Campopack - Empaque sostenible para exportación" 
                 className="rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-md object-contain bg-white border-4 sm:border-8 border-white" 
               />
-            </motion.div>
+            </div>
           </div>
           <div className="flex-1 text-center lg:text-left">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-700 mb-3 sm:mb-4 flex items-center justify-center lg:justify-start gap-2">
@@ -381,67 +444,48 @@ function ProductoContent() {
               Nuestro empaque sostenible cuida la calidad, reduce desperdicio y optimiza la logística para exportadores exigentes.
             </p>
             {pdfDisponible ? (
-              <motion.a 
+              <a 
                 href="/pdf/ficha-tecnica.pdf" 
                 download 
                 className="btn-primary inline-flex items-center gap-2"
-                whileHover={{ scale: 1.05 }}
               >
                 <Download className="w-5 h-5" />
                 Descargar Ficha Técnica (PDF)
-              </motion.a>
+              </a>
             ) : (
               <span className="inline-block bg-gray-300 text-gray-600 px-8 py-4 rounded-full font-bold shadow cursor-not-allowed">
                 PDF próximamente disponible
               </span>
             )}
           </div>
-        </motion.div>
-
+        </div>
         {/* Tabs/Anclas */}
-        <motion.div 
-          className="flex gap-2 sm:gap-4 mb-6 sm:mb-8 justify-center flex-wrap px-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="flex gap-2 sm:gap-4 mb-6 sm:mb-8 justify-center flex-wrap px-4">
           {[
             { ref: fichaRef, label: 'Ficha Técnica', icon: FileText },
             { ref: procesoRef, label: 'Proceso de Embalaje', icon: Package },
             { ref: sostenRef, label: 'Sostenibilidad', icon: Globe }
-          ].map(({ ref, label, icon }, index) => {
+          ].map(({ ref, label, icon }) => {
             const IconComponent = icon;
             return (
-              <motion.button 
+              <button 
                 key={label}
                 onClick={() => scrollToSection(ref)}
-                className="px-3 sm:px-6 py-2 sm:py-3 rounded-full bg-primary-600 hover:bg-primary-700 text-white font-bold transition-all duration-300 flex items-center gap-1 sm:gap-2 text-sm sm:text-base"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="px-3 sm:px-6 py-2 sm:py-3 rounded-full bg-primary-600 hover:bg-primary-700 text-white font-bold flex items-center gap-1 sm:gap-2 text-sm sm:text-base"
               >
                 <IconComponent className="w-3 h-3 sm:w-4 sm:h-4" />
                 {label}
-              </motion.button>
+              </button>
             );
           })}
-        </motion.div>
-
+        </div>
         {/* Ficha Técnica */}
-        <motion.section 
+        <section 
           ref={fichaRef} 
-          className="mb-8 sm:mb-10 card-modern p-4 sm:p-6 md:p-8"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          className="mb-8 sm:mb-10 bg-white rounded-2xl shadow-md p-6 sm:p-10 md:p-12"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-primary-700 mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3">
-            <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-primary-500" />
+          <h2 className="text-2xl font-bold text-primary-700 mb-4 flex items-center gap-2">
+            <FileText className="w-6 h-6 text-primary-500" />
             Ficha Técnica
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 text-gray-700">
@@ -454,18 +498,14 @@ function ProductoContent() {
               { label: 'Dimensiones externas', value: 'Largo: 500 mm, Ancho: 300 mm, Alto: 70 mm' },
               { label: 'Área de etiquetado', value: 'Largo: 130 mm, Ancho: 38 mm' },
               { label: 'Capacidad de carga', value: '3 Kg a 4 Kg' },
-            ].map((item, index) => (
-              <motion.div 
+            ].map((item) => (
+              <div 
                 key={item.label}
                 className="flex flex-col"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <span className="font-bold text-primary-600">{item.label}:</span>
                 <span className="text-gray-700">{item.value}</span>
-              </motion.div>
+              </div>
             ))}
             <div className="md:col-span-2">
               <span className="font-bold text-primary-600">Uso:</span>
@@ -476,19 +516,14 @@ function ProductoContent() {
               <span className="text-gray-700"> Producto ergonómico, cómodo apilamiento, diseño especial en columnas y refuerzos en base, tres divisiones internas para mayor soporte y flexibilidad. Vida útil mínima 1 año bajo almacenamiento adecuado.</span>
             </div>
           </div>
-        </motion.section>
-
-        {/* Proceso de embalaje */}
-        <motion.section 
+        </section>
+        {/* Proceso de Embalaje */}
+        <section 
           ref={procesoRef} 
-          className="mb-8 sm:mb-10 card-modern p-4 sm:p-6 md:p-8 bg-gradient-to-r from-primary-50 to-accent-50"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          className="mb-8 sm:mb-10 bg-white rounded-2xl shadow-md p-6 sm:p-10 md:p-12"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-primary-700 mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3">
-            <Package className="w-5 h-5 sm:w-6 sm:h-6 text-primary-500" />
+          <h2 className="text-2xl font-bold text-primary-700 mb-4 flex items-center gap-2">
+            <Package className="w-6 h-6 text-primary-500" />
             Proceso de Embalaje
           </h2>
           <ul className="space-y-4 text-gray-700">
@@ -497,39 +532,30 @@ function ProductoContent() {
               'Almacenar bajo techo y libre de polvo.',
               'Soporta temperaturas de -10°C a ambiente durante el proceso de empaque.',
               'Material y procesos cumplen regulaciones alimentarias.'
-            ].map((item, index) => (
-              <motion.li 
-                key={index}
+            ].map((item) => (
+              <li 
+                key={item}
                 className="flex items-start gap-3"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <CheckCircle className="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" />
                 <span>{item}</span>
-              </motion.li>
+              </li>
             ))}
           </ul>
-        </motion.section>
-
+        </section>
         {/* Sostenibilidad */}
-        <motion.section 
+        <section 
           ref={sostenRef} 
-          className="mb-8 sm:mb-10 card-modern p-4 sm:p-6 md:p-8"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          className="mb-8 sm:mb-10 bg-white rounded-2xl shadow-md p-6 sm:p-10 md:p-12"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-primary-700 mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3">
-            <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-primary-500" />
+          <h2 className="text-2xl font-bold text-primary-700 mb-4 flex items-center gap-2">
+            <Globe className="w-6 h-6 text-primary-500" />
             Sostenibilidad
           </h2>
           <p className="text-gray-700 leading-relaxed">
             El producto está elaborado con polipropileno virgen, índice de amarillamiento 0 Yi, reciclable y con procesos orientados a minimizar el impacto ambiental. Logística y almacenamiento pensados para reducir desperdicio y prolongar la vida útil.
           </p>
-        </motion.section>
+        </section>
       </div>
     </div>
   );
@@ -583,16 +609,14 @@ function ContactoContent() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const errors = validateForm();
-    
     if (errors.length > 0) {
       setEstado('error');
       setTimeout(() => setEstado(null), 3000);
       return;
     }
-
     setIsSubmitting(true);
     try {
-      const res = await fetch('https://formspree.io/f/xayrjzqg', {
+      const res = await fetch('https://formspree.io/f/mzzgnevr', {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
         body: new FormData(e.target)
@@ -600,13 +624,7 @@ function ContactoContent() {
       if (res.ok) {
         setEstado('ok');
         setFormData({
-          nombre: '',
-          empresa: '',
-          email: '',
-          telefono: '',
-          cantidad: '',
-          tipoProducto: 'caja-paltas',
-          mensaje: ''
+          nombre: '', empresa: '', email: '', telefono: '', cantidad: '', tipoProducto: 'caja-paltas', mensaje: ''
         });
       } else {
         setEstado('error');
@@ -619,246 +637,111 @@ function ContactoContent() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-white to-primary-50 min-h-screen">
-      <div className="max-w-4xl mx-auto py-16 px-4">
-        {/* Hero del contacto */}
-        <motion.div 
-          className="text-center mb-12 sm:mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary-700 mb-4 sm:mb-6 flex items-center justify-center gap-2 sm:gap-4">
-            <Mail className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-primary-500" />
+    <div className="relative w-full min-h-screen bg-[#D7E0A5] overflow-x-hidden">
+      <div className="relative z-10 max-w-screen-md mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center mb-12 sm:mb-16">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary-700 mb-4 sm:mb-6 flex items-center justify-center gap-2 sm:gap-4">
+            <Mail className="w-7 h-7 stroke-2" />
             Solicita tu Cotización
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-primary-600 max-w-3xl mx-auto px-4">
+          <p className="text-lg sm:text-xl md:text-2xl text-primary-600 max-w-2xl mx-auto px-4">
             ¿Necesitas empaques para tu cosecha? Cuéntanos tus requerimientos y te contactaremos.
           </p>
-        </motion.div>
-        
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Formulario */}
-          <motion.div 
-            className="card-modern p-8 md:p-12"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-700 mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3">
-              <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-primary-500" />
-              Solicitud de Cotización
-            </h2>
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-primary-700 font-bold mb-2 text-sm sm:text-base">Nombre *</label>
-                  <input 
-                    name="nombre" 
-                    value={formData.nombre}
-                    onChange={handleInputChange}
-                    required 
-                    className="input-modern" 
-                    placeholder="Tu nombre completo"
-                  />
-                </div>
-                <div>
-                  <label className="block text-primary-700 font-bold mb-2 text-sm sm:text-base">Empresa *</label>
-                  <input 
-                    name="empresa" 
-                    value={formData.empresa}
-                    onChange={handleInputChange}
-                    required 
-                    className="input-modern" 
-                    placeholder="Nombre de tu empresa"
-                  />
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-primary-700 font-bold mb-2 text-sm sm:text-base">Email *</label>
-                  <input 
-                    name="email" 
-                    type="email" 
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required 
-                    className="input-modern" 
-                    placeholder="tu@email.com"
-                  />
-                </div>
-                <div>
-                  <label className="block text-primary-700 font-bold mb-2 text-sm sm:text-base">Teléfono</label>
-                  <input 
-                    name="telefono" 
-                    value={formData.telefono}
-                    onChange={handleInputChange}
-                    className="input-modern" 
-                    placeholder="+56 9 1234 5678"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-primary-700 font-bold mb-2 text-sm sm:text-base">Cantidad Estimada *</label>
-                  <input 
-                    name="cantidad" 
-                    value={formData.cantidad}
-                    onChange={handleInputChange}
-                    required 
-                    className="input-modern" 
-                    placeholder="Ej: 1000 unidades"
-                  />
-                </div>
-                <div>
-                  <label className="block text-primary-700 font-bold mb-2 text-sm sm:text-base">Tipo de Producto</label>
-                  <select 
-                    name="tipoProducto" 
-                    value={formData.tipoProducto}
-                    onChange={handleInputChange}
-                    className="input-modern"
-                  >
-                    <option value="caja-paltas">Caja de Paltas</option>
-                    <option value="otros-empaques">Otros Empaques</option>
-                    <option value="consulta-general">Consulta General</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-primary-700 font-bold mb-2 text-sm sm:text-base">Mensaje *</label>
-                <textarea 
-                  name="mensaje" 
-                  value={formData.mensaje}
-                  onChange={handleInputChange}
-                  required 
-                  className="input-modern" 
-                  rows={4}
-                  placeholder="Cuéntanos sobre tu proyecto, fechas de entrega, especificaciones especiales..."
-                ></textarea>
-              </div>
-
-              <motion.button 
-                type="submit" 
-                disabled={isSubmitting}
-                className={`btn-primary w-full text-lg flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
-                whileHover={!isSubmitting ? { scale: 1.02 } : {}}
-                whileTap={!isSubmitting ? { scale: 0.98 } : {}}
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    Enviando...
-                  </>
-                ) : (
-                  <>
-                    <Mail className="w-5 h-5" />
-                    Enviar Solicitud
-                  </>
-                )}
-              </motion.button>
-
-              <AnimatePresence>
-                {estado === 'ok' && (
-                  <motion.div 
-                    className="text-green-700 font-bold mt-4 text-center flex items-center justify-center gap-2 p-4 bg-green-50 rounded-lg"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                  >
-                    <CheckCircle className="w-5 h-5" />
-                    ¡Solicitud enviada correctamente! Te contactaremos pronto.
-                  </motion.div>
-                )}
-                {estado === 'error' && (
-                  <motion.div 
-                    className="text-red-700 font-bold mt-4 text-center p-4 bg-red-50 rounded-lg"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                  >
-                    Hubo un error. Por favor, verifica los datos e intenta de nuevo.
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </form>
-          </motion.div>
-          
-          {/* Datos de contacto */}
-          <motion.div 
-            className="card-modern p-8 md:p-12 bg-gradient-to-br from-accent-50 to-primary-50"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-700 mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3">
-              <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-primary-500" />
-              Información de Contacto
-            </h2>
-            <div className="space-y-4 sm:space-y-6">
-              {[
-                { icon: MapPin, title: 'Oficina Principal', content: 'Av. Ejemplo 123, Santiago, Chile' },
-                { icon: Mail, title: 'Email de Cotizaciones', content: 'cotizaciones@campopack.cl' },
-                { icon: Phone, title: 'Teléfono Directo', content: '+56 9 1234 5678' },
-                { icon: Clock, title: 'Horario de Atención', content: 'Lun-Vie: 8:00 - 18:00' }
-              ].map((item, index) => (
-                <motion.div 
-                  key={item.title}
-                  className="flex items-start gap-3 sm:gap-4"
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary-500 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-bold text-primary-700 mb-1 text-sm sm:text-base">{item.title}</h3>
-                    <p className="text-primary-600 text-sm sm:text-base">{item.content}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div 
-              className="mt-6 sm:mt-8 p-4 bg-primary-50 rounded-lg"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <h3 className="font-bold text-primary-700 mb-2 flex items-center gap-2 text-sm sm:text-base">
-                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary-500" />
-                Respuesta Rápida
-              </h3>
-              <p className="text-primary-600 text-sm">
-                Respondemos todas las cotizaciones en menos de 24 horas hábiles.
-              </p>
-            </motion.div>
-            <motion.div 
-              className="mt-6 sm:mt-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <h3 className="font-bold text-primary-700 mb-3 sm:mb-4 flex items-center gap-2 text-sm sm:text-base">
-                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary-500" />
-                Ubicación
-              </h3>
-              <iframe 
-                title="Ubicación" 
-                src="https://www.google.com/maps?q=-33.4489,-70.6693&z=15&output=embed" 
-                width="100%" 
-                height="180" 
-                className="rounded-xl shadow-lg"
-              />
-            </motion.div>
-          </motion.div>
         </div>
+        <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-md p-6 sm:p-10 md:p-12 space-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-primary-700 font-bold mb-2 text-sm sm:text-base">Nombre *</label>
+              <input 
+                name="nombre" 
+                value={formData.nombre}
+                onChange={handleInputChange}
+                required 
+                className="input-modern" 
+                placeholder="Tu nombre completo"
+              />
+            </div>
+            <div>
+              <label className="block text-primary-700 font-bold mb-2 text-sm sm:text-base">Empresa *</label>
+              <input 
+                name="empresa" 
+                value={formData.empresa}
+                onChange={handleInputChange}
+                required 
+                className="input-modern" 
+                placeholder="Nombre de tu empresa"
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-primary-700 font-bold mb-2 text-sm sm:text-base">Email *</label>
+              <input 
+                name="email" 
+                value={formData.email}
+                onChange={handleInputChange}
+                required 
+                className="input-modern" 
+                placeholder="correo@ejemplo.com"
+                type="email"
+              />
+            </div>
+            <div>
+              <label className="block text-primary-700 font-bold mb-2 text-sm sm:text-base">Teléfono</label>
+              <input 
+                name="telefono" 
+                value={formData.telefono}
+                onChange={handleInputChange}
+                className="input-modern" 
+                placeholder="+56 9 1234 5678"
+                type="tel"
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-primary-700 font-bold mb-2 text-sm sm:text-base">Cantidad *</label>
+              <input 
+                name="cantidad" 
+                value={formData.cantidad}
+                onChange={handleInputChange}
+                required 
+                className="input-modern" 
+                placeholder="Ej: 1000"
+                type="number"
+              />
+            </div>
+            <div>
+              <label className="block text-primary-700 font-bold mb-2 text-sm sm:text-base">Producto</label>
+              <select 
+                name="tipoProducto" 
+                value={formData.tipoProducto}
+                onChange={handleInputChange}
+                className="input-modern"
+              >
+                <option value="caja-paltas">Caja de Paltas</option>
+                {/* Puedes agregar más opciones aquí */}
+              </select>
+            </div>
+          </div>
+          <div>
+            <label className="block text-primary-700 font-bold mb-2 text-sm sm:text-base">Mensaje *</label>
+            <textarea 
+              name="mensaje" 
+              value={formData.mensaje}
+              onChange={handleInputChange}
+              required 
+              className="input-modern min-h-[100px]"
+              placeholder="Cuéntanos tus requerimientos..."
+            />
+          </div>
+          <button type="submit" className="btn-primary w-full sm:w-auto px-8 py-3 text-lg font-bold flex items-center justify-center gap-2">
+            <Mail className="w-6 h-6" />
+            {isSubmitting ? 'Enviando...' : 'Enviar Cotización'}
+          </button>
+          {estado === 'ok' && <div className="text-green-600 font-bold">¡Mensaje enviado correctamente!</div>}
+          {estado === 'error' && <div className="text-red-600 font-bold">Por favor completa todos los campos obligatorios.</div>}
+        </form>
       </div>
     </div>
   );
@@ -917,120 +800,10 @@ function SEO({ title, description }) {
   return null;
 }
 
-function Header() {
-  const location = useLocation();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-  return (
-    <motion.header 
-      className="w-full flex justify-center pt-4 sm:pt-8 pb-4 bg-gradient-to-r from-primary-100 to-accent-50 sticky top-0 z-50 backdrop-blur-sm"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="card-modern w-[95vw] max-w-5xl flex items-center justify-between px-3 py-2 gap-4">
-        {/* Logo/Nombre */}
-        <motion.div 
-          className="text-xl sm:text-2xl font-extrabold text-primary-700 font-inter"
-          whileHover={{ scale: 1.05 }}
-        >
-          <Link to="/">Campopack</Link>
-        </motion.div>
-
-        {/* Navegación desktop */}
-        <nav className="hidden md:flex gap-4 text-primary-700 font-bold text-base justify-center items-center">
-          <motion.div whileHover={{ scale: 1.05 }}>
-            <Link to="/" className={`hover:text-primary-500 transition-colors ${location.pathname === '/' ? 'text-primary-500' : ''}`}>
-              Home
-            </Link>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }}>
-            <Link to="/producto" className={`hover:text-primary-500 transition-colors ${location.pathname === '/producto' ? 'text-primary-500' : ''}`}>
-              Producto
-            </Link>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }}>
-            <Link to="/contacto" className={`hover:text-primary-500 transition-colors ${location.pathname === '/contacto' ? 'text-primary-500' : ''}`}>
-              Contacto
-            </Link>
-          </motion.div>
-        </nav>
-
-        {/* Botón menú móvil */}
-        <motion.button
-          className="md:hidden p-2 text-primary-700 hover:text-primary-500 transition-colors"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          whileTap={{ scale: 0.95 }}
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {isMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </motion.button>
-      </div>
-
-      {/* Menú móvil */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-200"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-          >
-            <nav className="flex flex-col p-4 space-y-4">
-              <motion.div 
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Link 
-                  to="/" 
-                  className={`block py-3 px-4 rounded-lg font-bold transition-colors ${location.pathname === '/' ? 'bg-primary-100 text-primary-700' : 'text-primary-700 hover:bg-primary-50'}`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Home
-                </Link>
-              </motion.div>
-              <motion.div 
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Link 
-                  to="/producto" 
-                  className={`block py-3 px-4 rounded-lg font-bold transition-colors ${location.pathname === '/producto' ? 'bg-primary-100 text-primary-700' : 'text-primary-700 hover:bg-primary-50'}`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Producto
-                </Link>
-              </motion.div>
-              <motion.div 
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Link 
-                  to="/contacto" 
-                  className={`block py-3 px-4 rounded-lg font-bold transition-colors ${location.pathname === '/contacto' ? 'bg-primary-100 text-primary-700' : 'text-primary-700 hover:bg-primary-50'}`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Contacto
-                </Link>
-              </motion.div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
-  );
-}
-
 function Footer() {
   return (
     <motion.footer 
-      className="bg-gradient-to-br from-primary-700 to-primary-900 text-white pt-8 pb-4 px-2 sm:pt-12 sm:pb-6 sm:px-4"
+      className="bg-[#2F4E37] text-[#99A693] pt-8 pb-4 px-2 sm:pt-12 sm:pb-6 sm:px-4"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -1045,7 +818,7 @@ function Footer() {
           className="sm:col-span-2 lg:col-span-1"
         >
           <span className="text-xl sm:text-2xl font-extrabold font-inter">Campopack</span>
-          <p className="mt-2 text-sm opacity-90">Soluciones de empaque sostenible para la agroindustria.</p>
+          <p className="mt-2 text-sm opacity-90">Cajas plásticas diseñadas para exportación agrícola de alto volumen.</p>
           <div className="flex gap-3 mt-4 text-xl sm:text-2xl">
             {[
               { icon: FaYoutube, href: '#', label: 'YouTube' },
@@ -1167,144 +940,219 @@ function Footer() {
   );
 }
 
+// Restauro el Header clásico
+function Header() {
+  const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [atTop, setAtTop] = useState(true);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setAtTop(window.scrollY < 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
+  return (
+    <motion.header 
+      className={`w-full flex justify-center pt-6 sm:pt-10 pb-6 sticky top-0 z-50 backdrop-blur-md transition-colors duration-500 ${atTop ? 'bg-[#D7E0A5]' : 'bg-transparent'}`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className={`transition-all duration-500 shadow-md flex items-center justify-between px-4 py-3 gap-4 bg-white ${atTop ? 'rounded-2xl sm:rounded-full' : 'rounded-full'} card-modern w-[95vw] max-w-5xl`}> 
+        {/* Logo/Nombre */}
+        <motion.div 
+          className="text-2xl sm:text-3xl font-extrabold text-[#164726] font-inter"
+          whileHover={{ scale: 1.05 }}
+        >
+          <Link to="/">Campopack</Link>
+        </motion.div>
+        {/* Navegación desktop */}
+        <nav className="hidden md:flex gap-6 text-[#164726] font-bold text-lg justify-center items-center">
+          <motion.div whileHover={{ scale: 1.05 }}>
+            <Link to="/" className={`hover:text-primary-500 transition-colors ${location.pathname === '/' ? 'text-primary-500' : ''}`}>
+              Home
+            </Link>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }}>
+            <Link to="/producto" className={`hover:text-primary-500 transition-colors ${location.pathname === '/producto' ? 'text-primary-500' : ''}`}>
+              Producto
+            </Link>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }}>
+            <Link to="/contacto" className={`hover:text-primary-500 transition-colors ${location.pathname === '/contacto' ? 'text-primary-500' : ''}`}>
+              Contacto
+            </Link>
+          </motion.div>
+        </nav>
+        {/* Botón menú móvil */}
+        <motion.button
+          className="md:hidden p-2 text-[#164726] hover:text-primary-500 transition-colors"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          whileTap={{ scale: 0.95 }}
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {isMenuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </motion.button>
+      </div>
+      {/* Menú móvil */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            className="md:hidden absolute top-full left-0 right-0 bg-[#D7E0A5] shadow-lg border-t border-gray-200"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+          >
+            <nav className="flex flex-col p-4 space-y-4">
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Link 
+                  to="/" 
+                  className={`block py-3 px-4 rounded-lg font-bold transition-colors ${location.pathname === '/' ? 'bg-primary-100 text-[#164726]' : 'text-[#164726] hover:bg-primary-50'}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Home
+                </Link>
+              </motion.div>
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Link 
+                  to="/producto" 
+                  className={`block py-3 px-4 rounded-lg font-bold transition-colors ${location.pathname === '/producto' ? 'bg-primary-100 text-[#164726]' : 'text-[#164726] hover:bg-primary-50'}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Producto
+                </Link>
+              </motion.div>
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Link 
+                  to="/contacto" 
+                  className={`block py-3 px-4 rounded-lg font-bold transition-colors ${location.pathname === '/contacto' ? 'bg-primary-100 text-[#164726]' : 'text-[#164726] hover:bg-primary-50'}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contacto
+                </Link>
+              </motion.div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
+  );
+}
 
 function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <SEO 
         title="Campopack - Empaques Sostenibles para Agroindustria | Chile"
         description="Soluciones de empaque sostenible para paltas y productos agrícolas. Cajas de alta calidad para exportación. Cotiza ahora y conserva lo mejor del campo."
       />
-      <motion.div 
-        className="bg-white"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-100 to-accent-50 py-16 sm:py-24">
-        <Hero />
-      </section>
-      
-      {/* Intro Section */}
-      <section className="bg-gradient-to-br from-accent-50 to-primary-50 py-24">
-        <IntroStayFresh />
-      </section>
-      
-      {/* Clientes Section */}
-      <section className="bg-gradient-to-br from-primary-50 to-white py-24">
-        <Clientes />
-      </section>
-      
-      {/* Seguridad Section */}
-      <section className="bg-gradient-to-br from-accent-50 to-primary-100 py-24">
-        <motion.div 
-          className="max-w-5xl mx-auto px-4"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-primary-700 mb-8 sm:mb-12 text-center flex items-center justify-center gap-2 sm:gap-3">
-            <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-primary-500" />
-            La seguridad y pureza son nuestra prioridad
-          </h2>
-          <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-center justify-center mb-8 sm:mb-12">
-            <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 justify-center">
-              {[
-                { icon: '🌱', label: 'Sin GMO' },
-                { icon: '🥑', label: 'Base vegetal' },
-                { icon: '🧪', label: 'No tóxico' },
-                { icon: '✅', label: 'Apto consumo' }
-              ].map((item, index) => (
-                <motion.div 
-                  key={item.label}
-                  className="card-modern p-4 sm:p-6 md:p-8 flex flex-col items-center w-28 sm:w-32 md:w-36 hover-lift"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <span className="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3">{item.icon}</span>
-                  <span className="font-bold text-primary-700 text-center text-sm sm:text-base">{item.label}</span>
-                </motion.div>
-              ))}
+      {/* <Header /> Eliminado para evitar doble header */}
+      <div className="bg-[linear-gradient(to_bottom,#fdf6e3,#fefae0)] min-h-screen w-full">
+        {/* Hero Section */}
+        <section className="py-8 relative overflow-hidden bg-[#D7E0A5] flex items-center justify-center min-h-[calc(100vh-64px)]">
+          <div className="relative z-10 w-full max-w-6xl mx-auto" style={{ color: '#164726' }}>
+            <Hero />
+          </div>
+          {/* Curva inferior (idéntica a la de la sección salmón) */}
+          <div className="absolute left-0 right-0 bottom-0 w-full h-16 overflow-hidden">
+            <svg className="w-full h-full" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+              <path d="M0,0 C480,80 960,0 1440,80 L1440,80 L0,80 Z" fill="#FCE8BD" />
+            </svg>
+          </div>
+        </section>
+        {/* Conserva lo mejor del campo (Intro) */}
+        <section className="relative w-full overflow-hidden bg-[#FCE8BD] py-24">
+          {/* Curva superior (idéntica a la de la sección salmón) */}
+          <div className="absolute left-0 right-0 top-0 w-full h-16 overflow-hidden">
+            <svg className="w-full h-full" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+              <path d="M0,0 C480,80 960,0 1440,80 L1440,80 L0,80 Z" fill="#FCE8BD" />
+            </svg>
+          </div>
+          <div className="relative z-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8" style={{ color: '#164726' }}>
+            <IntroStayFresh />
+          </div>
+          {/* Curva inferior (idéntica a la de la sección salmón) */}
+          <div className="absolute left-0 right-0 bottom-0 w-full h-16 overflow-hidden">
+            <svg className="w-full h-full" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+              <path d="M0,0 C480,80 960,0 1440,80 L1440,80 L0,80 Z" fill="#FEB290" />
+            </svg>
+          </div>
+        </section>
+        {/* Historia/Misión Section */}
+        <section className="py-24 relative bg-[#FEB290]">
+          <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" style={{ color: '#5B1A1D' }}>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <h3 className="text-lg text-primary-600 mb-4 flex items-center gap-2">
+                  <Leaf className="w-5 h-5 text-primary-500" />
+                  Y, por si no nos conoces…
+                </h3>
+                <h2 className="text-3xl md:text-4xl font-extrabold text-primary-800 mb-8">Por qué elegimos hacer cajas:</h2>
+                <p className="text-primary-700 text-lg md:text-xl mb-6 leading-relaxed">
+                  Más de 800 millones de personas en el mundo sufren inseguridad alimentaria. En Campopack creemos que la exportación eficiente de alimentos de calidad es parte de la solución.
+                </p>
+                <p className="text-primary-700 text-lg md:text-xl leading-relaxed">
+                  Nuestra misión: hacer llegar nuestras paltas al mundo, con responsabilidad, eficiencia y compromiso.
+                </p>
+              </motion.div>
+              <motion.div 
+                className="flex justify-center"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <div className="relative">
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent-300 rounded-3xl blur-xl opacity-30"
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                  />
+                  <img 
+                    src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" 
+                    alt="Campo y paltas" 
+                    className="relative rounded-3xl shadow-2xl object-cover w-80 h-80 border-8 border-white hover-lift"
+                  />
+                </div>
+              </motion.div>
             </div>
           </div>
-          <motion.p 
-            className="text-lg md:text-xl text-primary-600 text-center max-w-3xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            La seguridad y pureza de nuestros productos es nuestra máxima prioridad. Por eso, Campopack utiliza materiales aptos para contacto alimentario, verificados y testeados para tu tranquilidad.
-          </motion.p>
-        </motion.div>
-      </section>
-      
-      {/* Historia/Misión Section */}
-      <section className="bg-gradient-to-br from-accent-100 to-accent-200 py-24">
-        <motion.div 
-          className="max-w-5xl mx-auto px-4"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <h3 className="text-lg text-primary-600 mb-4 flex items-center gap-2">
-                <Leaf className="w-5 h-5 text-primary-500" />
-                Y, por si no nos conoces…
-              </h3>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-primary-800 mb-8">Por qué hacemos lo que hacemos:</h2>
-              <p className="text-primary-700 text-lg md:text-xl mb-6 leading-relaxed">
-                Casi 800 millones de personas (1 de cada 10 en el mundo) pasan hambre cada noche, mientras que un tercio de los alimentos se pierde o desperdicia antes de ser consumido. Ese desperdicio contribuye al 8–10% de las emisiones de gases de efecto invernadero, malgastando recursos como el agua dulce.
-              </p>
-              <p className="text-primary-700 text-lg md:text-xl leading-relaxed">
-                Campopack nace con la promesa de desarrollar soluciones seguras y sostenibles que extiendan la vida y calidad de los productos frescos, haciéndolos más accesibles y disfrutables, mientras reducimos el desperdicio de alimentos. Nuestra misión es erradicar la inseguridad alimentaria y cuidar el planeta para futuras generaciones.
-              </p>
-            </motion.div>
-            <motion.div 
-              className="flex justify-center"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <div className="relative">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent-300 rounded-3xl blur-xl opacity-30"
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                />
-                <img 
-                  src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" 
-                  alt="Campo y paltas" 
-                  className="relative rounded-3xl shadow-2xl object-cover w-80 h-80 border-8 border-white hover-lift"
-                />
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
-      </section>
-      </motion.div>
+        </section>
+      </div>
     </>
   );
 }
 
 function PoliticaPrivacidad() {
+  useEffect(() => { window.scrollTo(0, 0); }, []);
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-[#D7E0A5] min-h-screen">
       <div className="max-w-4xl mx-auto py-16 px-4">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-extrabold text-[#234b1c] mb-6">Política de Privacidad</h1>
@@ -1342,8 +1190,9 @@ function PoliticaPrivacidad() {
 }
 
 function TerminosServicio() {
+  useEffect(() => { window.scrollTo(0, 0); }, []);
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-[#D7E0A5] min-h-screen">
       <div className="max-w-4xl mx-auto py-16 px-4">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-extrabold text-[#234b1c] mb-6">Términos de Servicio</h1>
@@ -1381,8 +1230,9 @@ function TerminosServicio() {
 }
 
 function Cookies() {
+  useEffect(() => { window.scrollTo(0, 0); }, []);
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-[#D7E0A5] min-h-screen">
       <div className="max-w-4xl mx-auto py-16 px-4">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-extrabold text-[#234b1c] mb-6">Política de Cookies</h1>
@@ -1434,8 +1284,6 @@ function AppRouter() {
     <>
       <SEO {...seo} />
       <Header />
-      <ScrollToTop />
-      <Analytics />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/producto" element={<Producto />} />
