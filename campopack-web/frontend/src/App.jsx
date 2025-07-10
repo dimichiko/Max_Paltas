@@ -394,8 +394,8 @@ function Producto() {
   return (
     <>
       <SEO 
-        title="Caja de Paltas Campo-Pack - Ficha Técnica y Especificaciones | Chile"
-        description="Ficha técnica completa de la caja de paltas Campo-Pack. Especificaciones, proceso de embalaje, sostenibilidad y cotización para exportación."
+        title="Paltas Campo-Pack - Ficha Técnica y Especificaciones | Chile"
+        description="Ficha técnica completa de nuestras paltas exportadas en cajas de 3-4 kilos. Especificaciones, proceso de embalaje y cotización para exportación."
       />
       <ProductoContent />
     </>
@@ -420,10 +420,10 @@ function ProductoContent() {
         <div className="text-center mb-12 sm:mb-16">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary-700 mb-4 sm:mb-6 flex items-center justify-center gap-2 sm:gap-4">
             <Package className="w-7 h-7 stroke-2" />
-            Caja de Paltas Campo-Pack
+            Paltas Campo-Pack
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-primary-600 max-w-3xl mx-auto px-4">
-            Diseñada para la cosecha y exportación de paltas, con máxima resistencia y ergonomía.
+            Exportamos paltas de alta calidad en cajas de 3-4 kilos para mercados internacionales.
           </p>
         </div>
         {/* Imagen destacada y breve intro */}
@@ -440,10 +440,10 @@ function ProductoContent() {
           <div className="flex-1 text-center lg:text-left">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-700 mb-3 sm:mb-4 flex items-center justify-center lg:justify-start gap-2">
               <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-primary-500" />
-              Soluciones que Conservan
+              Paltas de Exportación
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-primary-600 mb-4 sm:mb-6 leading-relaxed">
-              Nuestro empaque sostenible cuida la calidad, reduce desperdicio y optimiza la logística para exportadores exigentes.
+              Nuestras paltas se exportan en cajas de 3-4 kilos, garantizando frescura y calidad para mercados internacionales.
             </p>
             {pdfDisponible ? (
               <a 
@@ -492,7 +492,7 @@ function ProductoContent() {
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 text-gray-700">
             {[
-              { label: 'Nombre', value: 'Caja de Paltas Campo-Pack' },
+              { label: 'Nombre', value: 'Paltas Campo-Pack' },
               { label: 'Color', value: 'Natural' },
               { label: 'Peso estimado', value: '210 gr. +/- 2.5%' },
               { label: 'Materia prima', value: 'Polipropileno virgen 100%' },
@@ -820,7 +820,7 @@ function Footer() {
           className="sm:col-span-2 lg:col-span-1"
         >
           <span className="text-xl sm:text-2xl font-extrabold font-inter">Campo-Pack</span>
-          <p className="mt-2 text-sm opacity-90">Empaques sostenibles diseñados para exportación agrícola de alto volumen.</p>
+          <p className="mt-2 text-sm opacity-90">Exportamos paltas en cajas de 3-4 kilos para mercados internacionales.</p>
           <div className="flex gap-3 mt-4 text-xl sm:text-2xl">
             {[
               { icon: FaYoutube, href: '#', label: 'YouTube' },
@@ -1066,8 +1066,8 @@ function Home() {
   return (
     <>
       <SEO 
-        title="Campo-Pack - Empaques Sostenibles para Agroindustria | Chile"
-        description="Soluciones de empaque sostenible para paltas y productos agrícolas. Cajas de alta calidad para exportación. Cotiza ahora y conserva lo mejor del campo."
+        title="Campo-Pack - Exportación de Paltas | Chile"
+        description="Exportamos paltas de alta calidad en cajas de 3-4 kilos para mercados internacionales. Cotiza ahora y lleva lo mejor del campo al mundo."
       />
       {/* <Header /> Eliminado para evitar doble header */}
       <div className="bg-[linear-gradient(to_bottom,#fdf6e3,#fefae0)] min-h-screen w-full">
@@ -1115,7 +1115,7 @@ function Home() {
                   <Leaf className="w-5 h-5 text-primary-500" />
                   Y, por si no nos conoces…
                 </h3>
-                <h2 className="text-3xl md:text-4xl font-extrabold text-primary-800 mb-8">Por qué elegimos hacer cajas:</h2>
+                                  <h2 className="text-3xl md:text-4xl font-extrabold text-primary-800 mb-8">Por qué exportamos paltas:</h2>
                 <p className="text-primary-700 text-lg md:text-xl mb-6 leading-relaxed">
                   Más de 800 millones de personas en el mundo sufren inseguridad alimentaria. En Campo-Pack creemos que la exportación eficiente de alimentos de calidad es parte de la solución.
                 </p>
@@ -1342,8 +1342,8 @@ function NotFound() {
 function AppRouter() {
   const location = useLocation();
       // SEO dinámico
-    let seo = { title: 'Campo-Pack', description: 'Soluciones de empaque para agroindustria.' };
-      if (location.pathname === '/producto') seo = { title: 'Caja de Paltas Campo-Pack', description: 'Ficha técnica, proceso y sostenibilidad de la caja de paltas.' };
+    let seo = { title: 'Campo-Pack', description: 'Exportamos paltas de alta calidad en cajas de 3-4 kilos para mercados internacionales.' };
+      if (location.pathname === '/producto') seo = { title: 'Paltas Campo-Pack', description: 'Ficha técnica, proceso y especificaciones de nuestras paltas exportadas.' };
     if (location.pathname === '/contacto') seo = { title: 'Contacto - Campo-Pack', description: 'Formulario y datos de contacto de Campo-Pack.' };
   if (location.pathname === '/politica-de-privacidad') seo = { title: 'Política de Privacidad - Campo-Pack', description: 'Política de privacidad y protección de datos de Campo-Pack.' };
   if (location.pathname === '/terminos-de-servicio') seo = { title: 'Términos de Servicio - Campo-Pack', description: 'Términos y condiciones de uso del sitio web de Campo-Pack.' };
