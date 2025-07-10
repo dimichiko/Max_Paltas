@@ -286,7 +286,7 @@ function IntroStayFresh() {
           
           <div className="space-y-6 mb-8">
             <p className="text-xl sm:text-2xl md:text-3xl text-primary-600 leading-relaxed font-semibold">
-              En Campopack, seleccionamos las mejores paltas y las exportamos en cajas resistentes de 3 a 4 kg, garantizando frescura y presentación.
+              En Campo-Pack, seleccionamos las mejores paltas y las exportamos en empaques resistentes de 3 a 4 kg, garantizando frescura y presentación.
             </p>
             <p className="text-lg sm:text-xl md:text-2xl text-primary-600 leading-relaxed">
               Desde el sur de Chile, llevamos productos de alta calidad a mercados exigentes en el extranjero.
@@ -306,7 +306,7 @@ function IntroStayFresh() {
           >
             {[
               { icon: '🌱', title: 'Frescura Garantizada', desc: 'Cosechadas en su punto óptimo y empacadas al instante.' },
-              { icon: '🛡️', title: 'Exportación Segura', desc: 'En cajas de polipropileno diseñadas para preservar calidad.' },
+              { icon: '🛡️', title: 'Exportación Segura', desc: 'En empaques sostenibles diseñados para preservar calidad.' },
               { icon: '📦', title: 'Peso Ideal', desc: 'Cada unidad contiene entre 3 y 4 kilos, listas para distribución.' },
               { icon: '🌍', title: 'Trazabilidad y Certificación', desc: 'Procesos que cumplen con estándares internacionales.' }
             ].map((benefit, index) => (
@@ -432,7 +432,7 @@ function ProductoContent() {
             <div>
               <ImageWithLoader 
                 src={imgUrl} 
-                alt="Caja de paltas Campopack - Empaque sostenible para exportación" 
+                alt="Caja de paltas Campo-Pack - Empaque sostenible para exportación" 
                 className="rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-md object-contain bg-white border-4 sm:border-8 border-white" 
               />
             </div>
@@ -492,7 +492,7 @@ function ProductoContent() {
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 text-gray-700">
             {[
-              { label: 'Nombre', value: 'Caja de Paltas Campopack' },
+              { label: 'Nombre', value: 'Caja de Paltas Campo-Pack' },
               { label: 'Color', value: 'Natural' },
               { label: 'Peso estimado', value: '210 gr. +/- 2.5%' },
               { label: 'Materia prima', value: 'Polipropileno virgen 100%' },
@@ -767,7 +767,7 @@ function SEO({ title, description }) {
     { property: 'og:title', content: title },
     { property: 'og:description', content: description },
     { property: 'og:type', content: 'website' },
-    { property: 'og:site_name', content: 'Campopack' }
+    { property: 'og:site_name', content: 'Campo-Pack' }
   ];
 
   ogTags.forEach(({ property, content }) => {
@@ -820,7 +820,7 @@ function Footer() {
           className="sm:col-span-2 lg:col-span-1"
         >
           <span className="text-xl sm:text-2xl font-extrabold font-inter">Campo-Pack</span>
-          <p className="mt-2 text-sm opacity-90">Cajas plásticas diseñadas para exportación agrícola de alto volumen.</p>
+          <p className="mt-2 text-sm opacity-90">Empaques sostenibles diseñados para exportación agrícola de alto volumen.</p>
           <div className="flex gap-3 mt-4 text-xl sm:text-2xl">
             {[
               { icon: FaYoutube, href: '#', label: 'YouTube' },
@@ -893,7 +893,7 @@ function Footer() {
             <p>Chile</p>
             <p>Av. Ejemplo 123, Santiago</p>
             <p>+56 9 1234 5678</p>
-            <p>contacto@campopack.cl</p>
+            <p>contacto@campo-pack.cl</p>
           </div>
         </motion.div>
         
@@ -1117,7 +1117,7 @@ function Home() {
                 </h3>
                 <h2 className="text-3xl md:text-4xl font-extrabold text-primary-800 mb-8">Por qué elegimos hacer cajas:</h2>
                 <p className="text-primary-700 text-lg md:text-xl mb-6 leading-relaxed">
-                  Más de 800 millones de personas en el mundo sufren inseguridad alimentaria. En Campopack creemos que la exportación eficiente de alimentos de calidad es parte de la solución.
+                  Más de 800 millones de personas en el mundo sufren inseguridad alimentaria. En Campo-Pack creemos que la exportación eficiente de alimentos de calidad es parte de la solución.
                 </p>
                 <p className="text-primary-700 text-lg md:text-xl leading-relaxed">
                   Nuestra misión: hacer llegar nuestras paltas al mundo, con responsabilidad, eficiencia y compromiso.
