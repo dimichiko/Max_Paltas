@@ -402,6 +402,105 @@ function Producto() {
   );
 }
 
+function ProductSlider() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const slides = [
+    {
+      id: 1,
+      title: "Caja Plástica Vacía",
+      description: "Caja de polipropileno virgen para exportación",
+      image: "/images/50x30-150-mb-g4-p-640x0-c-default.jpg",
+      alt: "Caja plástica vacía para paltas - Campo Pack"
+    },
+    {
+      id: 2,
+      title: "Caja con Paltas",
+      description: "Producto final listo para exportación",
+      image: "/images/PHOTO-2025-07-09-11-34-27.jpg",
+      alt: "Caja plástica con paltas - Campo Pack"
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  return (
+    <div className="relative max-w-4xl mx-auto">
+      {/* Slider container */}
+      <div className="relative overflow-hidden rounded-2xl bg-[#FCE8BD] shadow-lg">
+        <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+          {slides.map((slide) => (
+            <div key={slide.id} className="w-full flex-shrink-0 p-8 sm:p-12">
+              <div className="text-center">
+                <h3 className="text-xl sm:text-2xl font-bold text-primary-700 mb-3">
+                  {slide.title}
+                </h3>
+                <p className="text-primary-600 mb-6">
+                  {slide.description}
+                </p>
+                <div className="flex justify-center">
+                  <ImageWithLoader 
+                    src={slide.image} 
+                    alt={slide.alt} 
+                    className="rounded-2xl shadow-2xl w-full max-w-md object-contain bg-white border-4 border-white" 
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        {/* Navigation buttons */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-primary-700 p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+          aria-label="Anterior"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-primary-700 p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+          aria-label="Siguiente"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+      
+      {/* Dots indicator */}
+      <div className="flex justify-center mt-6 gap-2">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentSlide 
+                ? 'bg-primary-600 scale-125' 
+                : 'bg-primary-300 hover:bg-primary-500'
+            }`}
+            aria-label={`Ir a slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function ProductoContent() {
   const fichaRef = useRef(null);
   const procesoRef = useRef(null);
@@ -425,52 +524,14 @@ function ProductoContent() {
             Exportamos paltas de alta calidad en cajas de 3-4 kilos para mercados internacionales.
           </p>
         </div>
-        {/* Imágenes de productos */}
+        {/* Slider de productos */}
         <div className="mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl font-bold text-primary-700 mb-6 sm:mb-8 text-center flex items-center justify-center gap-3">
             <Package className="w-6 h-6 sm:w-8 sm:h-8 text-primary-500" />
             Nuestros Productos
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            {/* Caja vacía */}
-            <div className="card-modern p-6 sm:p-8 bg-[#FCE8BD] rounded-2xl shadow-md">
-              <div className="text-center mb-6">
-                <h3 className="text-xl sm:text-2xl font-bold text-primary-700 mb-3">
-                  Caja Plástica Vacía
-                </h3>
-                <p className="text-primary-600 mb-4">
-                  Caja de polipropileno virgen para exportación
-                </p>
-              </div>
-              <div className="flex justify-center">
-                <ImageWithLoader 
-                  src="/images/50x30-150-mb-g4-p-640x0-c-default.jpg" 
-                  alt="Caja plástica vacía para paltas - Campo Pack" 
-                  className="rounded-2xl shadow-2xl w-full max-w-sm object-contain bg-white border-4 border-white" 
-                />
-              </div>
-            </div>
-            
-            {/* Caja con paltas */}
-            <div className="card-modern p-6 sm:p-8 bg-[#FCE8BD] rounded-2xl shadow-md">
-              <div className="text-center mb-6">
-                <h3 className="text-xl sm:text-2xl font-bold text-primary-700 mb-3">
-                  Caja con Paltas
-                </h3>
-                <p className="text-primary-600 mb-4">
-                  Producto final listo para exportación
-                </p>
-              </div>
-              <div className="flex justify-center">
-                <ImageWithLoader 
-                  src="/images/PHOTO-2025-07-09-11-34-27.jpg" 
-                  alt="Caja plástica con paltas - Campo Pack" 
-                  className="rounded-2xl shadow-2xl w-full max-w-sm object-contain bg-white border-4 border-white" 
-                />
-              </div>
-            </div>
-          </div>
+          <ProductSlider />
           
           <div className="text-center mt-8">
             <p className="text-lg sm:text-xl text-primary-600 mb-6 leading-relaxed max-w-4xl mx-auto">
