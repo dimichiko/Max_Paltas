@@ -337,17 +337,6 @@ function IntroStayFresh() {
           transition={{ duration: 1, delay: 0.2 }}
         >
           <div className="relative">
-            {/* Imagen de la caja plástica */}
-            <motion.img
-              src="/images/50x30-150-mb-g4-p-640x0-c-default.jpg"
-              alt="Caja plástica para paltas"
-              className="w-full max-w-md h-auto rounded-lg shadow-lg"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              whileHover={{ scale: 1.05 }}
-            />
             {/* Elementos decorativos */}
             <motion.div
               className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-primary-200 to-transparent rounded-full opacity-20"
