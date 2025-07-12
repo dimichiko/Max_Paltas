@@ -417,7 +417,6 @@ function ProductoContent() {
   const fichaRef = useRef(null);
   const procesoRef = useRef(null);
   const sostenRef = useRef(null);
-  const imgUrl = "https://dummyimage.com/400x250/cccccc/222222.png&text=Caja+de+Paltas";
   const pdfDisponible = false;
   
   const scrollToSection = (ref) => {
@@ -437,23 +436,55 @@ function ProductoContent() {
             Exportamos paltas de alta calidad en cajas de 3-4 kilos para mercados internacionales.
           </p>
         </div>
-        {/* Imagen destacada y breve intro */}
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-12 sm:mb-16 card-modern p-4 sm:p-6 md:p-8 lg:p-12 bg-[#FCE8BD] rounded-2xl shadow-md">
-          <div className="flex-1 flex justify-center">
-            <div>
-              <ImageWithLoader 
-                src={imgUrl} 
-                alt="Caja de paltas Campo-Pack - Empaque sostenible para exportación" 
-                className="rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-md object-contain bg-white border-4 sm:border-8 border-white" 
-              />
+        {/* Imágenes de productos */}
+        <div className="mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-primary-700 mb-6 sm:mb-8 text-center flex items-center justify-center gap-3">
+            <Package className="w-6 h-6 sm:w-8 sm:h-8 text-primary-500" />
+            Nuestros Productos
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            {/* Caja vacía */}
+            <div className="card-modern p-6 sm:p-8 bg-[#FCE8BD] rounded-2xl shadow-md">
+              <div className="text-center mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-primary-700 mb-3">
+                  Caja Plástica Vacía
+                </h3>
+                <p className="text-primary-600 mb-4">
+                  Caja de polipropileno virgen para exportación
+                </p>
+              </div>
+              <div className="flex justify-center">
+                <ImageWithLoader 
+                  src="/images/50x30-150-mb-g4-p-640x0-c-default.jpg" 
+                  alt="Caja plástica vacía para paltas - Campo Pack" 
+                  className="rounded-2xl shadow-2xl w-full max-w-sm object-contain bg-white border-4 border-white" 
+                />
+              </div>
+            </div>
+            
+            {/* Caja con paltas */}
+            <div className="card-modern p-6 sm:p-8 bg-[#FCE8BD] rounded-2xl shadow-md">
+              <div className="text-center mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-primary-700 mb-3">
+                  Caja con Paltas
+                </h3>
+                <p className="text-primary-600 mb-4">
+                  Producto final listo para exportación
+                </p>
+              </div>
+              <div className="flex justify-center">
+                <ImageWithLoader 
+                  src="/images/PHOTO-2025-07-09-11-34-27.jpg" 
+                  alt="Caja plástica con paltas - Campo Pack" 
+                  className="rounded-2xl shadow-2xl w-full max-w-sm object-contain bg-white border-4 border-white" 
+                />
+              </div>
             </div>
           </div>
-          <div className="flex-1 text-center lg:text-left">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-700 mb-3 sm:mb-4 flex items-center justify-center lg:justify-start gap-2">
-              <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-primary-500" />
-              Paltas de Exportación
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl text-primary-600 mb-4 sm:mb-6 leading-relaxed">
+          
+          <div className="text-center mt-8">
+            <p className="text-lg sm:text-xl text-primary-600 mb-6 leading-relaxed max-w-4xl mx-auto">
               Nuestras paltas se exportan en cajas de 3-4 kilos, garantizando frescura y calidad para mercados internacionales.
             </p>
             {pdfDisponible ? (
