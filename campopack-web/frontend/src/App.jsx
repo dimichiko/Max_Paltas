@@ -337,6 +337,17 @@ function IntroStayFresh() {
           transition={{ duration: 1, delay: 0.2 }}
         >
           <div className="relative">
+            {/* Imagen de la caja plástica */}
+            <motion.img
+              src="/images/50x30-150-mb-g4-p-640x0-c-default.jpg"
+              alt="Caja plástica para paltas"
+              className="w-full max-w-md h-auto rounded-lg shadow-lg"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              whileHover={{ scale: 1.05 }}
+            />
             {/* Elementos decorativos */}
             <motion.div
               className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-primary-200 to-transparent rounded-full opacity-20"
@@ -945,64 +956,79 @@ function Footer() {
 // Restauro el Header clásico
 function Header() {
   const location = useLocation();
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [atTop, setAtTop] = useState(true);
+  const headerRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setAtTop(window.scrollY < 20);
+      setIsScrolled(window.scrollY > 50);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const closeMobileMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
-    <motion.header 
-      className={`w-full flex justify-center pt-6 sm:pt-10 pb-6 sticky top-0 z-50 backdrop-blur-md transition-colors duration-500 ${atTop ? 'bg-[#D7E0A5]' : 'bg-transparent'}`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
+    <header
+      ref={headerRef}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-primary-100'
+          : 'bg-transparent'
+      }`}
     >
-      <div className={`transition-all duration-500 shadow-md flex items-center justify-between px-4 py-3 gap-4 bg-white ${atTop ? 'rounded-2xl sm:rounded-full' : 'rounded-full'} card-modern w-[95vw] max-w-5xl`}> 
-        {/* Logo/Nombre */}
-        <motion.div 
-          className="text-2xl sm:text-3xl font-extrabold text-[#164726] font-inter"
-          whileHover={{ scale: 1.05 }}
-        >
-          <Link to="/">Campo-Pack</Link>
-        </motion.div>
-        {/* Navegación desktop */}
-        <nav className="hidden md:flex gap-6 text-[#164726] font-bold text-lg justify-center items-center">
-          <motion.div whileHover={{ scale: 1.05 }}>
-            <Link to="/" className={`hover:text-primary-500 transition-colors ${location.pathname === '/' ? 'text-primary-500' : ''}`}>
-              Home
-            </Link>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }}>
-            <Link to="/producto" className={`hover:text-primary-500 transition-colors ${location.pathname === '/producto' ? 'text-primary-500' : ''}`}>
-              Producto
-            </Link>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }}>
-            <Link to="/contacto" className={`hover:text-primary-500 transition-colors ${location.pathname === '/contacto' ? 'text-primary-500' : ''}`}>
-              Contacto
-            </Link>
-          </motion.div>
-        </nav>
-        {/* Botón menú móvil */}
-        <motion.button
-          className="md:hidden p-2 text-[#164726] hover:text-primary-500 transition-colors"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          whileTap={{ scale: 0.95 }}
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {isMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </motion.button>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16 sm:h-20">
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-3" onClick={closeMobileMenu}>
+            <img 
+              src="/images/LOGO CAMPO.png" 
+              alt="Campo Pack Logo" 
+              className="h-10 sm:h-12 w-auto"
+            />
+            <span className="text-xl sm:text-2xl font-bold text-primary-700 hidden sm:block">
+              Campo Pack
+            </span>
+          </Link>
+
+          {/* Navegación desktop */}
+          <nav className="hidden md:flex gap-6 text-[#164726] font-bold text-lg justify-center items-center">
+            <motion.div whileHover={{ scale: 1.05 }}>
+              <Link to="/" className={`hover:text-primary-500 transition-colors ${location.pathname === '/' ? 'text-primary-500' : ''}`}>
+                Home
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }}>
+              <Link to="/producto" className={`hover:text-primary-500 transition-colors ${location.pathname === '/producto' ? 'text-primary-500' : ''}`}>
+                Producto
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }}>
+              <Link to="/contacto" className={`hover:text-primary-500 transition-colors ${location.pathname === '/contacto' ? 'text-primary-500' : ''}`}>
+                Contacto
+              </Link>
+            </motion.div>
+          </nav>
+          {/* Botón menú móvil */}
+          <motion.button
+            className="md:hidden p-2 text-[#164726] hover:text-primary-500 transition-colors"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            whileTap={{ scale: 0.95 }}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {isMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </motion.button>
+        </div>
       </div>
       {/* Menú móvil */}
       <AnimatePresence>
@@ -1055,7 +1081,7 @@ function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   );
 }
 
